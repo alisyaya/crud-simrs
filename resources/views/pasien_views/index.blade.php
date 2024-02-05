@@ -1,3 +1,6 @@
+@foreach ($pasiens as $pasien)
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,26 +35,21 @@
                    </div>
                </div>
 
-               <div class="bg-[#eeeeee] h-[420px] rounded-b-[40px] sm:h-[600px] lg:ml-52 lg:rounded-xl lg:h-full lg:bg-white lg:overflow-auto lg:p-2">
-                   <div class="bg-black h-14 rounded-xl">
-                       {{-- search bar --}}
-                       <div class=" bg-white fixed hidden items-center justify-between rounded-b-xl h-14 w-[84.3%] p-3 shadow-lg lg:flex lg:rounded-xl">
-                           {{-- logo --}}
-                           <h1 class="text-slate-500 font-[700] flex items-center text-2xl mb-1 pointer-events-none">
-                               Suka<span class="text-red-500">S</span>akit<span class="text-3xl">.</span>
-                           </h1>
+                <div class="bg-[#eeeeee] h-[420px] rounded-b-[40px] sm:h-[600px] lg:ml-52 lg:rounded-xl lg:h-full lg:bg-white lg:overflow-auto lg:no-scrollbar">
+                    {{-- search bar --}}
+                    <div class="hidden bg-white shadow-lg lg:flex items-center justify-between p-2 h-14 w-full rounded-lg text-slate-500">
+                        <h1 class="text-2xl font-bold">Suka Sakit<span class="text-xl">.</span></h1>
 
-                           {{-- menu --}}
-                           <div class="text-slate-500 flex items-center justify-between  w-14 ">
-                               {{-- search --}}
+                        {{-- menu hamberger --}}
+                        <div class="bg-transparent flex h-10 w-96 items-center justify-between overflow-hidden">
+                            <input type="text" class="h-7 w-60 rounded-full pl-5 pr-5 focus:pr-10 peer focus:w-72 duration-300 ease-out focus:outline-2 focus:outline-[#3D5EB2]" placeholder="search">
+                            <ion-icon name="search" class="hidden ml-64 pointer-events-none peer-focus:absolute peer-focus:block delay-[9000ms] transition-all duration-200  "></ion-icon>
 
-                               <a href="#" class=" flex items-center justify-center text-2xl p-1 rounded-sm hover:text-black hover:bg-white"><ion-icon name="search-sharp" class=""></ion-icon></a>
+                        </div>
 
-                               {{-- menu heisenberg --}}
-                               <a href="#" class=" flex items-center justify-content text-2xl p-1 rounded-sm hover:text-black hover:bg-white"><ion-icon name="menu"></ion-icon></a>
-                           </div>
-                       </div>
+                    </div>
                 </div>
+
 
                    {{-- profile mobile --}}
                    <div class="h-full p-5 sm:hidden">
@@ -127,7 +125,7 @@
                                <div class="flex h-6 items-center justify-between mb-1">
                                    <div class="text-sm">
                                        No registrasi
-                                       No antrian
+                                       <p>No antrian : {{ $pasien->id}}</p>
                                    </div>
                                    <div class="text-red-500 text-sm font-sans font-bold rounded-full ">
                                        <a href="#"><ion-icon name="close"></ion-icon></a>
@@ -136,7 +134,7 @@
 
                            {{-- Nama --}}
                                <div class="text-xl mb-3">
-                                   <h3>Muhammad Zakaria</h3>
+                                   <h3>{{ $pasien->nama }}</h3>
                                </div>
 
                            {{-- edit panggil --}}
@@ -200,3 +198,4 @@
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
+@endforeach
