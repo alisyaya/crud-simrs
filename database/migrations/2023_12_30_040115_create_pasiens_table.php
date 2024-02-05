@@ -19,6 +19,7 @@ return new class extends Migration
             $table->date('tgl_lahir');
             $table->text('alamat');
             $table->integer('no_telepon');
+            $table->integer('no_registrasi');
             $table->timestamps();
         });
     }
